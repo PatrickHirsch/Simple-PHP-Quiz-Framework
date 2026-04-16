@@ -39,16 +39,15 @@ if($answersPassed)
 
 
 <?php if($giveFlag): ?>
+	<script>localStorage.setItem('scrollY',null);</script>
 	<div class="flag">
 		<p>
 			<?= htmlspecialchars($theFLAG,ENT_QUOTES,'UTF-8'); ?>
 		</p>
 	</div>
+<?php endif; ?>
 
 
-
-
-<?php else: ?>
 	<div>
 		<div><p>&nbsp;</p></div>
 	</div>
@@ -82,7 +81,6 @@ if($answersPassed)
 		<button type="submit">Check Answers</button>
 	</form>
 </div>
-<?php endif; ?>
 
 </body>
 </html>
