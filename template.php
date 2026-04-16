@@ -17,6 +17,8 @@ $questions=
 	],
 ];
 
+$minQuestionsNeeded=count($questions);
+
 
 ?>
 

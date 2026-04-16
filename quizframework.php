@@ -1,16 +1,30 @@
 <?php
+// Set unset values
+if(!isset($challengeName))		$challengeName="Default Name";
+if(!isset($theFLAG))			$theFLAG="slug{flag}";
+if(!isset($questions))
+{	echo("No questions defined.");
+	die();
+}
+if(!isset($minQuestionsNeeded))	$minQuestionsNeeded=count($questions);
+?>
+
+<?php
 $giveFlag=false;
 $answersPassed=($_SERVER['REQUEST_METHOD']==='POST');
 $results=[];
 
 if($answersPassed)
-{	$giveFlag=true;
+{	$giveFlag=false;
+	$numCorrect=0;
 	foreach($questions as $i=>$qa)
 	{	$user_answer=strtoupper(preg_replace('/\s+/',' ',trim($_POST[$i]??'')));
 		$is_correct=in_array($user_answer,$qa['a'],true);
 		$results[$i]=$is_correct;
-		if(!$is_correct) $giveFlag=false;
+		if($is_correct) $numCorrect++;
+		//if(!$is_correct) $giveFlag=false;
     }
+	if($numCorrect>=$minQuestionsNeeded) $giveFlag=true;
 }
 ?>
 
