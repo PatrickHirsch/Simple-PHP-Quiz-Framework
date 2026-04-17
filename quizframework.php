@@ -8,7 +8,6 @@ if(!isset($questions))
 }
 if(!isset($minQuestionsNeeded))	$minQuestionsNeeded=count($questions);
 ?>
-
 <?php
 $giveFlag=false;
 $answersPassed=($_SERVER['REQUEST_METHOD']==='POST');
@@ -27,7 +26,6 @@ if($answersPassed)
 	if($numCorrect>=$minQuestionsNeeded) $giveFlag=true;
 }
 ?>
-
 <html>
 <head>
 	<title><?=htmlspecialchars($challengeName??'',ENT_QUOTES,'UTF-8')?></title>
@@ -40,8 +38,8 @@ if($answersPassed)
 
 <?php if($giveFlag): ?>
 	<script>localStorage.setItem('scrollY',null);</script>
-	<div class="flag">
-		<p>
+	<div class="flagContainer">
+		<p id="FLAG" onclick="navigator.clipboard.writeText(this.innerHTML)">
 			<?= htmlspecialchars($theFLAG,ENT_QUOTES,'UTF-8'); ?>
 		</p>
 	</div>

@@ -14,7 +14,6 @@ body
 	justify-content:center;
 	align-items:center;
 }
-
 form
 {	background-color:rgb(0,0,0,.55);
 	text-align:center;
@@ -22,11 +21,11 @@ form
 	max-width:750px;
 }
 
+
 label
 {	font-weight:bold;
 	font-size:1.28em;
 }
-
 label img
 {	max-width:75%;
 	height:auto;
@@ -43,6 +42,8 @@ button
 	font-size:1.5em;
 }
 
+
+
 input[type="text"]
 {	padding:6px;
 	margin:10px;
@@ -57,10 +58,25 @@ input.incorrect
 	border: 2px solid #dc3545;
 }
 
-.flag
+
+.flagContainer
 {	display:flex;
 	justify-content:center;
 	align-items:center;
 	height:100%;
 	font-size:4em;
+}
+#FLAG
+{	transition:opacity 0.4s ease;	opacity:.95;
+	transition:transform 0.4s ease;	transform:scale(1);
+	text-shadow:0 0 10px rgba(0,0,0,.9);
+}
+#FLAG:hover
+{	transition:opacity 0.2s ease;	opacity:1;
+	transition:transform 0.2s ease;	transform:scale(1.05);
+	cursor:pointer;
+}
+#FLAG:active
+{	transition:transform 0.15s ease;transform:scale(1);
+	opacity:1;
 }
